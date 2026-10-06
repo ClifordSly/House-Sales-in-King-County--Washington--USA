@@ -130,7 +130,6 @@ ZIP code 98039 has the highest average house sale price at approximately $2.16 m
 
 This indicates that location is an important factor associated with differences in house prices across King County.
 
-
 ### 3. What Property Grade Offers the Best Value?
 This question evaluates the combination of **property size, quality, and price** that provides relatively good value.
 
