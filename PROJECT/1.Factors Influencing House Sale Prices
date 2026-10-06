@@ -1,0 +1,93 @@
+--Characteristics of five most expensive houses
+SELECT 
+    bedrooms,
+    bathrooms,
+    grade,
+    condition,
+    waterfront,
+    sqft_living,
+    sqft_lot,
+    floors,
+    sqft_above,
+    sqft_basement,
+    yr_built,
+    Price
+FROM house_price
+ORDER BY Price DESC
+LIMIT 5;
+
+--What are the factors that influence the house sale price?
+--Grade 
+SELECT
+  grade,
+  count(*) as house_count,
+  ROUND(min(price),2 )as min_price,
+  ROUND(max(price),2 )as max_price,
+  ROUND(AVG(price),2) as avg_price
+FROM
+  house_price
+Group BY grade 
+ORDER BY avg_price DESC;
+
+--bedrooms
+SELECT
+  bedrooms,
+  count(*) as house_count,
+  ROUND(min(price),2) as min_price,
+  ROUND(max(price),2) as max_price,
+  ROUND(AVG(price),2) as avg_price
+FROM
+  house_price
+Group BY bedrooms
+ORDER BY avg_price DESC;
+
+--floors
+SELECT
+  floors,
+  count(*) as house_count,
+  ROUND(min(price),2) as min_price,
+  ROUND(max(price),2) as max_price,
+  ROUND(AVG(price),2) as avg_price
+FROM
+  house_price
+Group BY floors
+ORDER BY avg_price DESC;
+
+--Condition
+SELECT
+  condition,
+  count(*) as house_count,
+  ROUND(min(price),2) as min_price,
+  ROUND(max(price),2) as max_price,
+  ROUND(AVG(price),2) as avg_price
+FROM
+  house_price
+Group BY condition
+ORDER BY avg_price DESC;
+
+--bathrooms
+SELECT
+  bathrooms,
+  count(*) as house_count,
+  ROUND(min(price),2) as min_price,
+  ROUND(max(price),2) as max_price,
+  ROUND(AVG(price),2) as avg_price
+FROM
+  house_price
+Group BY bathrooms
+ORDER BY avg_price DESC;
+
+--sqft_living
+SELECT
+  sqft_living,
+  count(*) as house_count,
+  ROUND(min(price),2) as min_price,
+  ROUND(max(price),2) as max_price,
+  ROUND(AVG(price),2) as avg_price
+FROM
+  house_price
+Group BY sqft_living
+ORDER BY avg_price DESC;
+
+
+--Grade and sqft_living do direclty influence the way houses are being priced in King County, USA

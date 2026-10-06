@@ -1,0 +1,32 @@
+/*--What type of property represents the best combination of size, quality, and price?
+-- Looking for houses that have:
+ 1. price per sqft_living below the average
+ 2. sqft_living that is above the average
+*/
+
+SELECT
+  ROUND(AVG(sqft_living), 2) AS Average_sqft_living,
+  ROUND(AVG(price/sqft_living),2) As Average_price_per_sqft
+FROM house_price;
+
+
+SELECT
+    grade,
+    COUNT(*) AS house_count,
+    ROUND(AVG(sqft_living), 2) AS avg_size,
+    ROUND(AVG(price), 2) AS avg_price,
+    ROUND(AVG(price / sqft_living), 2) AS avg_price_per_sqft
+FROM house_price
+GROUP BY grade
+HAVING ROUND(AVG(sqft_living), 2) > 2079.9 
+AND ROUND(AVG(price / sqft_living), 2) < 264.16 
+ORDER BY grade;
+
+
+
+--The dataset contains 21436 unique houses
+
+SELECT
+  COUNT(DISTINCT ID) as number_houses
+FROM
+  house_price

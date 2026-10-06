@@ -1,0 +1,13 @@
+--How does location affect house prices in King County?
+--Location and House Prices — Top 10 ZIP Codes
+
+SELECT
+  zipcode,
+  count(*) as house_count,
+  ROUND(min(price),2) as min_price,
+  ROUND(max(price),2) as max_price,
+  ROUND(AVG(price),2) as average_price
+FROM house_price
+Group BY zipcode
+ORDER BY average_price DESC
+limit 10;
